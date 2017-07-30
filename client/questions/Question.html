@@ -1,0 +1,15 @@
+<template name="Question">
+  <div class="container">
+    <article class="view">
+      <h1>{{question.question}}</h1>
+      <div class="col-md-12 text-center">
+        {{#if question.answer}}
+          <button class="answer btn btn-success">YES</button>
+        {{else}}
+          <button class="answer btn btn-danger">NO</button>
+        {{/if}}
+      </div>
+      <button class="back btn btn-info">Back</button>
+    </article>
+  </div>
+</template>

@@ -1,0 +1,29 @@
+$default-margin: 20px;
+
+.question {
+  margin-bottom: $default-margin;
+  cursor: pointer;
+  h2 {
+    display: inline;
+    vertical-align: bottom;
+  }
+  button {
+    float: right;
+  }
+}
+
+.view {
+  margin-top: $default-margin;
+  h1 {
+    text-align: center;
+  }
+
+  button.answer {
+    zoom:4;
+    margin-top: $default-margin;
+  }
+}
+
+#add-question {
+  margin-bottom: $default-margin;
+}

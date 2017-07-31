@@ -3,10 +3,16 @@
     <article class="view">
       <h1>{{question.question}}</h1>
       <div class="col-md-12 text-center">
-        {{#if question.answer}}
-          <button class="answer btn btn-success">YES</button>
-        {{else}}
-          <button class="answer btn btn-danger">NO</button>
+        {{#unless question.isPoll}}
+          {{#if question.answer}}
+            <button class="answer btn btn-success">YES</button>
+          {{else}}
+            <button class="answer btn btn-danger">NO</button>
+          {{/if}}
+        {{/unless}}
+        {{#if question.isPoll}}
+        <button class="poll-answer-yes btn btn-success">{{getPollAnswerYes question}}x YES</button>
+        <button class="poll-answer-no btn btn-danger">{{getPollAnswerNo question}}x NO</button>
         {{/if}}
       </div>
       <button class="back btn btn-info">Back</button>

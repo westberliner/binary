@@ -14,16 +14,42 @@ Questions.allow({
   }
 });
 
+pollAnswerSchema = new SimpleSchema({
+  answer: {
+    type: String,
+    label: 'Answer'
+  },
+  count: {
+    type: Number,
+    label: 'Count'
+  }
+});
+
 // Schema
 Schema = new SimpleSchema({
   question: {
     type: String,
     label: "Questions"
   },
+  isPoll: {
+    type: Boolean,
+    label: "Poll",
+    optional: true
+  },
   answer: {
     type: Boolean,
     label: "Answer",
     optional: true,
+    autoform: {
+      type: 'hidden'
+    }
+  },
+  pollAnswer: {
+    type: [pollAnswerSchema],
+    label: 'Poll Answer',
+    defaultValue: function() {
+      return [{answer: 'yes', count: 0}, {answer:'no', count: 0}];
+    },
     autoform: {
       type: 'hidden'
     }

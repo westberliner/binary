@@ -17,13 +17,16 @@ Questions.allow({
 pollAnswerSchema = new SimpleSchema({
   answer: {
     type: String,
-    label: 'Answer'
+    label: 'Answer',
+    optional: true
   },
   count: {
     type: Number,
-    label: 'Count'
+    label: 'Count',
+    optional: true
   }
 });
+
 
 // Schema
 Schema = new SimpleSchema({
@@ -47,8 +50,11 @@ Schema = new SimpleSchema({
   pollAnswer: {
     type: [pollAnswerSchema],
     label: 'Poll Answer',
-    defaultValue: function() {
-      return [{answer: 'yes', count: 0}, {answer:'no', count: 0}];
+    optional: true,
+    autoValue: function() {
+      if(this.isInsert) {
+        return [{answer: 'yes', count: 0}, {answer:'no', count: 0}];
+      }
     },
     autoform: {
       type: 'hidden'
